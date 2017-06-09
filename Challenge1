@@ -1,1 +1,40 @@
 # Best-Challenge
+
+** Issue: ** Đọc nội dung của 1 file ảnh vào, đưa nội dung của file ảnh đó lên một vùng nhớ trên heap , dùng SublimeText/Notepad++ đọc file ảnh đó dưới dạng chuỗi và dùng chương trình của các bạn để đọc ra các nội dung đó lưu vào nhiều chuỗi khác nhau.
+
+#include <stdio.h>
+
+
+int main()  {
+  char dir[100]={0};
+  gets(dir);
+
+  FILE *f = fopen(dir, "r");
+  char *img, *img1, *img2, *img3;
+  img = (char *) malloc(10);
+  img1 = (char *) malloc(10);
+  img2 = (char *) malloc(30);
+  img3 = (char *) malloc(sizeof(f));
+
+  printf("Sizeof f: %d\n", sizeof(f));
+  puts("Hello-The contents below:\n");
+  fscanf(f,"%s", img);
+  fscanf(f,"%s", img1);
+  fscanf(f,"%s", img2);
+  fscanf(f,"%s", img3);
+  printf("%d\n", sizeof(img));
+  printf("%s\n",img);
+  printf("%s\n", img1);
+  printf("%s\n", img2);
+  printf("%s\n", img3);
+
+  fclose(f);
+
+  free(img);
+  free(img1);
+  free(img2);
+  free(img3);
+  free(img);
+  return 0;
+}
+
